@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 
 import HomePage from "./HomePage";
@@ -10,6 +10,15 @@ import Footer from "./Footer";
 import Login from "./Login";
 
 function App() {
+  const [sites, setSites] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3000/sites")
+      .then((r) => r.json())
+      .then((sites) => {
+        setSites(sites);
+      });
+  }, []);
+
   return (
     <div className="app">
       <div>
@@ -26,10 +35,10 @@ function App() {
 
       <Switch>
         <Route path="/recyclables">
-          <MyRecyclables />
+          <MyRecyclables sites={sites} />
         </Route>
         <Route path="/sites">
-          <RecyclingSites />
+          <RecyclingSites sites={sites} />
         </Route>
         <Route path="/categories">
           <RecyclingCategories />

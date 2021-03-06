@@ -2,7 +2,7 @@ import React from "react";
 // import Header from "./Header";
 // import Footer from "./Footer";
 
-function RecyclingSites() {
+function RecyclingSites({ sites }) {
   return (
     <>
       {/* <Header /> */}
@@ -41,6 +41,15 @@ function RecyclingSites() {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       ></iframe>
+      {sites.map((site) => {
+        return (
+          <div>
+            <p>{site.name}</p>;<p>{site.address}</p>;<p>{site.borough}</p>;
+            <p>{site.latitude}</p>;<p>{site.longitude}</p>;<p>{site.website}</p>
+            ;<img src="{site.image}" />;
+          </div>
+        );
+      })}
       {/* <Footer /> */}
     </>
   );
