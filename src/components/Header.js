@@ -3,10 +3,6 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    // <>
-    //   <h1>Headerrrrrr!!!!</h1>
-    // </>
-
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
       <div class="container-fluid">
         <a href="" class="navbar-brand" href="#">
@@ -27,29 +23,29 @@ function Header() {
             width="50px"
             height="auto"
           />
-          {/* <br> */}
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
               <a class="nav-link" href="#">
-                {/* Home */}
                 <Link to="/home">Home</Link>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                {/* My Recyclables  */}
                 <Link to="/recyclables">My Recyclables</Link>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                {/* Recycling Sites */}
+                <Link to="/fav_sites">Favorite Recycling Sites</Link>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
                 <Link to="/sites">Recycling Sites</Link>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                {/* Recycling Categories{" "} */}
                 <Link to="/categories">Recycling Categories</Link>
               </a>
             </li>

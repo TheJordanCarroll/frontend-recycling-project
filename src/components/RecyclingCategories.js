@@ -1,11 +1,8 @@
 import React from "react";
-// import Header from "./Header";
-// import Footer from "./Footer";
 
 function RecyclingCategories() {
   return (
     <>
-      {/* <Header /> */}
       <h1>Metal!!!!</h1>
       <iframe
         width="560"
@@ -107,7 +104,6 @@ function RecyclingCategories() {
       <h1>Textiles!!!!</h1>
       <p>Bring to a dropoff location</p>
       <h1>Compost!!!!</h1>
-      {/* <Footer /> */}
     </>
   );
 }

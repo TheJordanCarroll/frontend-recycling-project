@@ -5,6 +5,7 @@ import HomePage from "./HomePage";
 import MyRecyclables from "./MyRecyclables";
 import RecyclingSites from "./RecyclingSites";
 import RecyclingCategories from "./RecyclingCategories";
+import FavoriteSites from "./FavoriteSites";
 import Header from "./Header";
 import Footer from "./Footer";
 import Login from "./Login";
@@ -16,6 +17,14 @@ function App() {
       .then((r) => r.json())
       .then((sites) => {
         setSites(sites);
+      });
+  }, []);
+  const [favSites, setFavSites] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3000/user_sites")
+      .then((r) => r.json())
+      .then((favSites) => {
+        setFavSites(favSites);
       });
   }, []);
 
@@ -36,6 +45,9 @@ function App() {
       <Switch>
         <Route path="/recyclables">
           <MyRecyclables sites={sites} />
+        </Route>
+        <Route path="/fav_sites">
+          <FavoriteSites fav_sites={favSites} />
         </Route>
         <Route path="/sites">
           <RecyclingSites sites={sites} />

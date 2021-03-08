@@ -1,14 +1,31 @@
 import React, { useState } from "react";
-// import Header from "./Header";
-// import Footer from "./Footer";
 
 function SiteCard({ site }) {
   const { id, name, borough, image, address } = site;
+  const [isFavorite, setIsFavorite] = useState(false);
+  const current_user_id = 1;
+
+  function toggleFav(e) {
+    setIsFavorite(!isFavorite);
+    handleSubmit(e);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("http://localhost:3000/user_sites", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ user_id: current_user_id, site_id: id }),
+    })
+      .then((r) => r.json())
+      .then((newUserSite) => {});
+  }
+
+  function onAddUserSite() {}
 
   return (
-    // <li className="card">
-    // <div className="container-fluid padding">
-    //   <div className="row padding">
     <div className="col-md-4">
       <div className="card">
         <img
@@ -24,6 +41,18 @@ function SiteCard({ site }) {
           <a href="#" class="btn btn-outline-secondary">
             View More Information
           </a>
+          {isFavorite ? (
+            <button
+              onClick={toggleFav}
+              className="emoji-button favorite active"
+            >
+              ★
+            </button>
+          ) : (
+            <button onClick={toggleFav} className="emoji-button favorite">
+              ☆
+            </button>
+          )}
         </div>
       </div>
       {/* </div>
