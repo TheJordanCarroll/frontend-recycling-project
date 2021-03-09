@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import ContentCard from "./ContentCard";
 
-function CommentCard({ site, comments, setComments, onUpdateMessage }) {
+function CommentCard({
+  site,
+  comments,
+  setComments,
+  onUpdateMessage,
+  setHiddenShowForm,
+}) {
   const allComments = comments.filter((comment) => comment.site.id == site.id);
   // set_fav_sites(fav_sites.filter ((fav) => fav.id !== id))
   return (
@@ -16,6 +22,7 @@ function CommentCard({ site, comments, setComments, onUpdateMessage }) {
             comment={comment}
             comments={comments}
             onUpdateMessage={onUpdateMessage}
+            setHiddenShowForm={setHiddenShowForm}
           />
         );
       })}

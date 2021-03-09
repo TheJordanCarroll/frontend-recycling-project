@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import NewCommentForm from "./NewCommentForm.js";
 import CommentCard from "./CommentCard.js";
 
@@ -71,8 +72,9 @@ function SiteCard({ site, favs, set }) {
             {address}, {borough}
           </p>
           <a href="#" className="btn btn-outline-secondary">
-            View More Information
+            <Link to="/site"> View More Information</Link>
           </a>
+
           {isFavorite ? (
             <button onClick={toggleFav} className="btn btn-outline-secondary">
               ★
@@ -91,6 +93,8 @@ function SiteCard({ site, favs, set }) {
               site={site}
               setComments={setComments}
               comments={comments}
+              setHiddenForm={setHiddenForm}
+              setHiddenShowForm={setHiddenShowForm}
             />
           )}
           <button onClick={hideShowForm} className="btn btn-outline-secondary">
@@ -102,6 +106,7 @@ function SiteCard({ site, favs, set }) {
               site={site}
               setComments={setComments}
               comments={comments}
+              setHiddenShowForm={setHiddenShowForm}
             />
           )}
         </div>

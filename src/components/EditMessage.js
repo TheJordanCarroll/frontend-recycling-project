@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 
-function EditMessage({ id, content, onUpdateMessage }) {
+function EditMessage({ id, content, onUpdateMessage, setHiddenShowForm }) {
   const [messageBody, setMessageBody] = useState(content);
 
   function handleFormSubmit(e) {
     e.preventDefault();
 
     const data = {
-      message: {
-        content: messageBody,
-      },
+      content: messageBody,
     };
     console.log(data);
     console.log("subbbb", id);
@@ -19,10 +17,11 @@ function EditMessage({ id, content, onUpdateMessage }) {
       headers: {
         "Content-Type": "application/json",
       },
-      content: JSON.stringify(data),
+      body: JSON.stringify(data),
     })
       .then((r) => r.json())
-      .then((data) => console.log(data));
+      .then((data) => onUpdateMessage(data));
+    // setHiddenShowForm(true);
   }
 
   return (
@@ -32,9 +31,11 @@ function EditMessage({ id, content, onUpdateMessage }) {
         name="content"
         autoComplete="off"
         value={messageBody}
+        class="form-control"
+        id="formGroupExampleInput"
         onChange={(e) => setMessageBody(e.target.value)}
       />
-      <input type="submit" value="Save" />
+      <input class="btn btn-outline-secondary" type="submit" value="Save" />
     </form>
   );
 }

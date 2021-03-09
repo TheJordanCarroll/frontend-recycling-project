@@ -9,6 +9,7 @@ import FavoriteSites from "./FavoriteSites";
 import Header from "./Header";
 import Footer from "./Footer";
 import Login from "./Login";
+import SitePage from "./SitePage";
 
 function App() {
   const [sites, setSites] = useState([]);
@@ -51,8 +52,12 @@ function App() {
         <Route path="/fav_sites">
           <FavoriteSites fav_sites={favSites} set_fav_sites={setFavSites} />
         </Route>
-        <Route path="/sites">
-          <RecyclingSites sites={sites} fav_sites={favSites} set_fav_sites={setFavSites} />
+        <Route exact path="/sites">
+          <RecyclingSites
+            sites={sites}
+            fav_sites={favSites}
+            set_fav_sites={setFavSites}
+          />
         </Route>
         <Route path="/categories">
           <RecyclingCategories />
@@ -62,6 +67,9 @@ function App() {
         </Route>
         <Route path="">
           <Login />
+        </Route>
+        <Route exact path="/site">
+          <SitePage />
         </Route>
       </Switch>
       <Footer />

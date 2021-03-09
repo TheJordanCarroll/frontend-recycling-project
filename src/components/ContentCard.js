@@ -8,6 +8,7 @@ function ContentCard({
   comments,
   comment,
   onUpdateMessage,
+  setHiddenShowForm,
 }) {
   const [isEditing, setIsEditing] = useState(false);
 
@@ -35,6 +36,7 @@ function ContentCard({
           setComments={setComments}
           comment={comment}
           content={content}
+          setHiddenShowForm={setHiddenShowForm}
         />
       ) : (
         <p>{content}</p>
