@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
+
+// import { Link } from "react-router-dom";
 import NewCommentForm from "./NewCommentForm.js";
 import CommentCard from "./CommentCard.js";
+import SitePage from "./SitePage";
 
 function SiteCard({ site, favs, set }) {
   const { id, name, borough, image, address } = site;
@@ -72,7 +75,7 @@ function SiteCard({ site, favs, set }) {
             {address}, {borough}
           </p>
           <a href="#" className="btn btn-outline-secondary">
-            <Link to="/site"> View More Information</Link>
+            <Link to={`/sites/${id}`}> View More Information</Link>
           </a>
 
           {isFavorite ? (
@@ -110,6 +113,11 @@ function SiteCard({ site, favs, set }) {
             />
           )}
         </div>
+        {/* <Switch>
+          <Route exact path="/site">
+            <SitePage site={site} />
+          </Route>
+        </Switch> */}
       </div>
     </div>
   );
