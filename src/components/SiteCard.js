@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import NewCommentForm from "./NewCommentForm.js";
+import CommentCard from "./CommentCard.js";
 
-function SiteCard({ site }) {
+
+function SiteCard({ site, favs, set }) {
   const { id, name, borough, image, address } = site;
   const [isFavorite, setIsFavorite] = useState(false);
+  const [hiddenForm, setHiddenForm] = useState(true);
+  const [hiddenShowForm, setHiddenShowForm] = useState(true);
+  const [comments, setComments] = useState([]);
   const current_user_id = 1;
 
   function toggleFav(e) {
@@ -10,6 +16,20 @@ function SiteCard({ site }) {
     handleSubmit(e);
   }
 
+  useEffect(() => {
+    fetch("http://localhost:3000/comments")
+      .then((r) => r.json())
+      .then((data) => setComments(data));
+  }, []);
+
+  function hideForm() {
+    setHiddenForm(!hiddenForm);
+  }
+
+  function hideShowForm() {
+    setHiddenShowForm(!hiddenShowForm);
+  }
+  
   function handleSubmit(e) {
     e.preventDefault();
     fetch("http://localhost:3000/user_sites", {
@@ -20,10 +40,11 @@ function SiteCard({ site }) {
       body: JSON.stringify({ user_id: current_user_id, site_id: id }),
     })
       .then((r) => r.json())
-      .then((newUserSite) => {});
+      .then(data => {
+        const newFav = [...favs, data];
+        set(newFav);
+      });
   }
-
-  function onAddUserSite() {}
 
   return (
     <div className="col-md-4">
@@ -38,27 +59,33 @@ function SiteCard({ site }) {
           <p className="card-text">
             {address}, {borough}
           </p>
-          <a href="#" class="btn btn-outline-secondary">
+          <a href="#" className="btn btn-outline-secondary">
             View More Information
           </a>
           {isFavorite ? (
             <button
               onClick={toggleFav}
-              className="emoji-button favorite active"
+              className="btn btn-outline-secondary"
             >
               ★
             </button>
           ) : (
-            <button onClick={toggleFav} className="emoji-button favorite">
+            <button onClick={toggleFav} className="btn btn-outline-secondary">
               ☆
             </button>
           )}
+          <br/>
+          <button onClick={hideForm} className="btn btn-outline-secondary">
+            {hiddenForm ? "Add new comment" : "No comment"}
+          </button>
+          {hiddenForm ? null : <NewCommentForm site={site} setComments={setComments} comments={comments} />}
+          <button onClick={hideShowForm} className="btn btn-outline-secondary">
+            {hiddenShowForm ? "View Comments" : "Hide Comments"}
+          </button>
+          {hiddenShowForm ? null : <CommentCard site={site} setComments={setComments} comments={comments} />}
         </div>
       </div>
-      {/* </div>
-      </div> */}
     </div>
-    // </li>
   );
 }
 

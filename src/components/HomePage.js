@@ -5,10 +5,10 @@ import Footer from "./Footer";
 function HomePage() {
   return (
     <div>
-      <div class="container-fluid">
-        <div class="row jumbotron">
-          <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
-            <p class="lead">
+      <div className="container-fluid">
+        <div className="row jumbotron">
+          <div className="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+            <p className="lead">
               Over 2,000 landfills are currently open in the United States,
               making our country an uglier place. And although they’re often
               camouflaged fairly well, the negative issues that accompany
@@ -23,17 +23,17 @@ function HomePage() {
               allowfullscreen
             ></iframe>{" "}
           </div>
-          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2"></div>
+          <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2"></div>
         </div>
       </div>
-      <div class="container-fluid padding">
-        <div class="row welcome text-center">
-          <div class="col-12">
-            <h1 class="display-4">Facilitating a cleaner planet</h1>
+      <div className="container-fluid padding">
+        <div className="row welcome text-center">
+          <div className="col-12">
+            <h1 className="display-4">Facilitating a cleaner planet</h1>
           </div>
           <hr></hr>
-          <div class="col-12">
-            <p class="lead">
+          <div className="col-12">
+            <p className="lead">
               Although 75% of America’s waste is recyclable, we only recycle
               around 30% of it. We hope this application encourages you to start
               recycling better.
@@ -44,10 +44,10 @@ function HomePage() {
           </div>
         </div>
       </div>
-      <div class="container-fluid padding">
-        <div class="row welcome text-center">
-          <div class="col-12">
-            <h1 class="display">Meet the Team</h1>
+      <div className="container-fluid padding">
+        <div className="row welcome text-center">
+          <div className="col-12">
+            <h1 className="display">Meet the Team</h1>
           </div>
           <hr></hr>
         </div>
@@ -83,9 +83,9 @@ function HomePage() {
         </div>
       </div>
 
-      <div class="container-fluid padding">
-        <div class="row padding">
-          <div class="col-lg-6">
+      <div className="container-fluid padding">
+        <div className="row padding">
+          <div className="col-lg-6">
             <h2>Our Philosophy</h2>
 
             <p>
@@ -94,14 +94,14 @@ function HomePage() {
               the rest.
             </p>
           </div>
-          <div class="col-lg-6">
+          <div className="col-lg-6">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT61L7peEy4RCEZ41RjGxW_BzLHeB9QNrdsUwgvh4jjh6veVAItY4tbVU-O_QFVdxKikOJSZHN&usqp=CAc"
-              class="img-fluid"
+              className="img-fluid"
             />
           </div>
         </div>
-        <hr class="my-4"></hr>
+        <hr className="my-4"></hr>
       </div>
     </div>
   );

@@ -12,6 +12,8 @@ import Login from "./Login";
 
 function App() {
   const [sites, setSites] = useState([]);
+  const [favSites, setFavSites] = useState([]);
+
   useEffect(() => {
     fetch("http://localhost:3000/sites")
       .then((r) => r.json())
@@ -19,7 +21,7 @@ function App() {
         setSites(sites);
       });
   }, []);
-  const [favSites, setFavSites] = useState([]);
+
   useEffect(() => {
     fetch("http://localhost:3000/user_sites")
       .then((r) => r.json())
@@ -47,10 +49,10 @@ function App() {
           <MyRecyclables sites={sites} />
         </Route>
         <Route path="/fav_sites">
-          <FavoriteSites fav_sites={favSites} />
+          <FavoriteSites fav_sites={favSites} set_fav_sites={setFavSites} />
         </Route>
         <Route path="/sites">
-          <RecyclingSites sites={sites} />
+          <RecyclingSites sites={sites} fav_sites={favSites} set_fav_sites={setFavSites} />
         </Route>
         <Route path="/categories">
           <RecyclingCategories />

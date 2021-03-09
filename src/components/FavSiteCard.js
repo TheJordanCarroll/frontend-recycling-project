@@ -1,6 +1,26 @@
 import React from "react";
 
-function FavSiteCard({ fav }) {
+function FavSiteCard({ fav, fav_sites, set_fav_sites }) {
+  const{ id } = fav
+  console.log("helloooo", fav.id)
+  function deleteFav() {
+    const requestOptions = {
+      method: 'DELETE'
+    };
+    console.log("hiiii", id)
+    console.log("yo", fav_sites)
+    // fetch(`http://localhost:3000/user_sites/${id}`, requestOptions)
+    //   .then(response => response.text())
+    //   .then(result => console.log(result))
+    //   .catch(error => console.log('error', error));
+    fetch(`http://localhost:3000/user_sites/${id}`,requestOptions);
+    set_fav_sites(fav_sites.filter ((fav) => fav.id !== id))
+  
+    // const updatedFavsArray = fav_sites.filter((fav) => fav.id !== id);
+    // console.log("bonjour", updatedFavsArray)
+    // set(updatedFavsArray);
+  }
+
   return (
     <div className="col-md-4">
       <div className="card">
@@ -14,9 +34,12 @@ function FavSiteCard({ fav }) {
           <p className="card-text">
             {fav.site.address}, {fav.site.borough}
           </p>
-          <a href="#" class="btn btn-outline-secondary">
+          <a href="#" className="btn btn-outline-secondary">
             View More Information
           </a>
+          <button className="btn btn-outline-secondary" onClick={deleteFav}>
+            Remove
+          </button>
         </div>
       </div>
     </div>
