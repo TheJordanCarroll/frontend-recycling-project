@@ -1,24 +1,14 @@
 import React from "react";
 
 function FavSiteCard({ fav, fav_sites, set_fav_sites }) {
-  const{ id } = fav
-  console.log("helloooo", fav.id)
+  const { id } = fav;
+  console.log("helloooo", fav.id);
   function deleteFav() {
     const requestOptions = {
-      method: 'DELETE'
+      method: "DELETE",
     };
-    console.log("hiiii", id)
-    console.log("yo", fav_sites)
-    // fetch(`http://localhost:3000/user_sites/${id}`, requestOptions)
-    //   .then(response => response.text())
-    //   .then(result => console.log(result))
-    //   .catch(error => console.log('error', error));
-    fetch(`http://localhost:3000/user_sites/${id}`,requestOptions);
-    set_fav_sites(fav_sites.filter ((fav) => fav.id !== id))
-  
-    // const updatedFavsArray = fav_sites.filter((fav) => fav.id !== id);
-    // console.log("bonjour", updatedFavsArray)
-    // set(updatedFavsArray);
+    fetch(`http://localhost:3000/user_sites/${id}`, requestOptions);
+    set_fav_sites(fav_sites.filter((fav) => fav.id !== id));
   }
 
   return (

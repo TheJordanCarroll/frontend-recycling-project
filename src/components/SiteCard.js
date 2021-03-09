@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import NewCommentForm from "./NewCommentForm.js";
 import CommentCard from "./CommentCard.js";
 
-
 function SiteCard({ site, favs, set }) {
   const { id, name, borough, image, address } = site;
   const [isFavorite, setIsFavorite] = useState(false);
@@ -29,7 +28,7 @@ function SiteCard({ site, favs, set }) {
   function hideShowForm() {
     setHiddenShowForm(!hiddenShowForm);
   }
-  
+
   function handleSubmit(e) {
     e.preventDefault();
     fetch("http://localhost:3000/user_sites", {
@@ -40,10 +39,22 @@ function SiteCard({ site, favs, set }) {
       body: JSON.stringify({ user_id: current_user_id, site_id: id }),
     })
       .then((r) => r.json())
-      .then(data => {
+      .then((data) => {
         const newFav = [...favs, data];
         set(newFav);
       });
+  }
+
+  function handleUpdateMessage(updatedCommentObj) {
+    // console.log(updateCommentObj);
+    const updatedComments = comments.map((comment) => {
+      if (comment.id === updatedCommentObj.id) {
+        return updatedCommentObj;
+      } else {
+        return comment;
+      }
+    });
+    setComments(updatedComments);
   }
 
   return (
@@ -63,10 +74,7 @@ function SiteCard({ site, favs, set }) {
             View More Information
           </a>
           {isFavorite ? (
-            <button
-              onClick={toggleFav}
-              className="btn btn-outline-secondary"
-            >
+            <button onClick={toggleFav} className="btn btn-outline-secondary">
               ★
             </button>
           ) : (
@@ -74,15 +82,28 @@ function SiteCard({ site, favs, set }) {
               ☆
             </button>
           )}
-          <br/>
+          <br />
           <button onClick={hideForm} className="btn btn-outline-secondary">
             {hiddenForm ? "Add new comment" : "No comment"}
           </button>
-          {hiddenForm ? null : <NewCommentForm site={site} setComments={setComments} comments={comments} />}
+          {hiddenForm ? null : (
+            <NewCommentForm
+              site={site}
+              setComments={setComments}
+              comments={comments}
+            />
+          )}
           <button onClick={hideShowForm} className="btn btn-outline-secondary">
             {hiddenShowForm ? "View Comments" : "Hide Comments"}
           </button>
-          {hiddenShowForm ? null : <CommentCard site={site} setComments={setComments} comments={comments} />}
+          {hiddenShowForm ? null : (
+            <CommentCard
+              onUpdateMessage={handleUpdateMessage}
+              site={site}
+              setComments={setComments}
+              comments={comments}
+            />
+          )}
         </div>
       </div>
     </div>
