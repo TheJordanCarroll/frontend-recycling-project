@@ -1,4 +1,5 @@
 import React from "react";
+import ReactPlayer from "react-player"
 
 function RecyclingCategories({ category }) {
   return (
@@ -167,18 +168,23 @@ function RecyclingCategories({ category }) {
             <p>Category: {category.name}</p>
             <p>Description:{category.description}</p>
             <p>Here's how to upcycle {category.name}... </p>
-            <iframe
+            <div>
+              <ReactPlayer
+                url={category.video}
+              />
+            </div>
+            {/* <iframe
               width="560"
               height="315"
               src={category.video}
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
-            ></iframe>
+            ></iframe> */}
             <br />
           </div>
           <div className="col-lg-6">
-            <img src={category.name} className="img-fluid" />
+            <img src={category.image} className="img-fluid" />
           </div>
         </div>
       </div>
