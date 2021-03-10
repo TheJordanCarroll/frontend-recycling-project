@@ -14,12 +14,20 @@ import SitePage from "./SitePage";
 function App({ site }) {
   const [sites, setSites] = useState([]);
   const [favSites, setFavSites] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/sites")
       .then((r) => r.json())
       .then((sites) => {
         setSites(sites);
+      });
+  }, []);
+  useEffect(() => {
+    fetch("http://localhost:3000/categories")
+      .then((r) => r.json())
+      .then((categories) => {
+        setCategories(categories);
       });
   }, []);
 
@@ -60,7 +68,7 @@ function App({ site }) {
           />
         </Route>
         <Route exact path="/categories">
-          <RecyclingCategories />
+          <RecyclingCategories categories={categories} />
         </Route>
         <Route exact path="/home">
           <HomePage />
