@@ -1,14 +1,16 @@
 import React from "react";
-import ReactPlayer from "react-player"
+import ReactPlayer from "react-player";
 
 function RecyclingCategories({ category }) {
-  // const descriptionArray = category.description.map((description) => {
-  //   return <li>{description}</li>
-  // })
+  const descriptionArray = JSON.parse(category.description).map(
+    (description) => {
+      return <li>{description}</li>;
+    }
+  );
 
   // console.log("good mornting", descriptionArray)
-  console.log("hellurrr", category.description)
-  console.log("heyheyhey", category.description[2])
+  console.log("hellurrr", category.description);
+  console.log("heyheyhey", category.description[2]);
 
   return (
     //   <>
@@ -174,15 +176,11 @@ function RecyclingCategories({ category }) {
           <div className="col-lg-6">
             <h2>Category Information</h2>
             <p>Category: {category.name}</p>
-            <p>Description:{category.description}</p>
+            {/* <p>Description:{category.description}</p> */}
             <p>Here's how to upcycle {category.name}... </p>
-            {/* <ul>
-              {descriptionArray}
-            </ul> */}
+            <ul>{descriptionArray}</ul>
             <div>
-              <ReactPlayer
-                url={category.video}
-              />
+              <ReactPlayer url={category.video} />
             </div>
             {/* <iframe
               width="560"
