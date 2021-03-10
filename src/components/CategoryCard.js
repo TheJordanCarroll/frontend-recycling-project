@@ -174,14 +174,13 @@ function RecyclingCategories({ category }) {
       <div className="container-fluid padding">
         <div className="row padding">
           <div className="col-lg-6">
-            <h2>Category Information</h2>
-            <p>Category: {category.name}</p>
+            <h2>{category.name}</h2>
+            <p>
+              Here is some detailed information about recycling {category.name}{" "}
+              and some examples of items that fall under this category:
+            </p>
             {/* <p>Description:{category.description}</p> */}
-            <p>Here's how to upcycle {category.name}... </p>
             <ul>{descriptionArray}</ul>
-            <div>
-              <ReactPlayer url={category.video} />
-            </div>
             {/* <iframe
               width="560"
               height="315"
@@ -193,9 +192,13 @@ function RecyclingCategories({ category }) {
             <br />
           </div>
           <div className="col-lg-6">
-            <img src={category.image} className="img-fluid" />
+            <img src={category.image} className="img-fluid catpic" />
           </div>
         </div>
+      </div>
+      <div className="video">
+        <p>Here's how to upcycle {category.name}... </p>
+        <ReactPlayer url={category.video} />
       </div>
       <hr className="my-4" />
     </div>

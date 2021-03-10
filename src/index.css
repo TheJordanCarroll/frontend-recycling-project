@@ -64,7 +64,7 @@ body {
   border-radius: 0;
 }
 .padding {
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 .welcome {
   width: 75%;
@@ -245,6 +245,11 @@ figure {
   padding: 1rem;
 }
 
+.video {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
 /*
 Extra small (xs) devices (portrait phones, less than 576px)
 No media query since this is the default in Bootstrap
@@ -257,3 +262,13 @@ Large (lg) devices (desktops, 992px and up)
 Extra (xl) large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) { ... }
 */
+
+.catpic {
+  max-height: 450px;
+  max-width: "auto";
+}
+
+.headline {
+  margin-left: auto;
+  margin-right: auto;
+}
