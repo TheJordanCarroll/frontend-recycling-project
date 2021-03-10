@@ -2,6 +2,14 @@ import React from "react";
 import ReactPlayer from "react-player"
 
 function RecyclingCategories({ category }) {
+  // const descriptionArray = category.description.map((description) => {
+  //   return <li>{description}</li>
+  // })
+
+  // console.log("good mornting", descriptionArray)
+  console.log("hellurrr", category.description)
+  console.log("heyheyhey", category.description[2])
+
   return (
     //   <>
     //     <h1>Metal!!!!</h1>
@@ -168,6 +176,9 @@ function RecyclingCategories({ category }) {
             <p>Category: {category.name}</p>
             <p>Description:{category.description}</p>
             <p>Here's how to upcycle {category.name}... </p>
+            {/* <ul>
+              {descriptionArray}
+            </ul> */}
             <div>
               <ReactPlayer
                 url={category.video}
