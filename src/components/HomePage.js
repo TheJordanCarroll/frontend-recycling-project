@@ -16,10 +16,8 @@ function HomePage() {
             <div className="carousel-caption">
               <h1 className="display-2">RecycleNYC</h1>
               <h3>
-                Although 75% of America’s waste is recyclable, we only recycle
-                around 30%.
+                Recycle better with RecycleNYC.
               </h3>
-              <h3>We hope RecycleNYC helps you recycle better.</h3>
               {/* <button type="button" className="btn btn-outline-light btn-lg">
               VIEW DEMO
             </button>
@@ -41,6 +39,21 @@ function HomePage() {
             />
           </div>
         </div>
+      </div>
+      <div class="container-fluid padding">
+        <div class="row welcome text-center">
+          <div class="col-12">
+            <h1 class="display-4">FAQ</h1>
+          </div>
+        <hr/>
+        <div class="col-12">
+          <p class="lead"><em>How can I support recycling initiatives?</em> One way you can support recycling initiatives is by signing petitions at the link <a target="_blank" href="https://www.change.org/t/recycling-en-us">here.</a></p>
+          <p class="lead"><em>How should I sort my recycling?</em> New Yorkers must separate recyclables into two categories. The first category is mixed paper and cardboard. The second category is metal, glass, plastic, and cartons. Once separated, they need to be placed in clear plastic bags or recycling bins. </p>
+          <p class="lead"><em>How do I know what category an item belongs in?</em> If you're not sure what category an item belongs in, you can learn more about recycling categories by clicking the Categories tab on the nav bar above.</p>
+          <p class="lead"><em>How do I know which day to put the recycling out?</em> The day that you should put your recycling out varies by neighborhood. You can find out which day you should put the recyling out in your neighborhood by clicking the link <a target="_blank" href="https://www1.nyc.gov/assets/dsny/site/collectionSchedule/">here.</a></p>
+          <p class="lead"><em>Can I recycle unusual items like textiles, electronics, and batteries?</em> Yes! You can find electronics or textile drop-off sites in your borough by clicking the Recycling Sites tab in the nav bar above. You can find information about how to recycle batteries and other miscellaneous items by clicking the Categories tab in the nav bar above.</p>
+        </div>
+	    </div>
       </div>
     </div>
   );

@@ -18,10 +18,12 @@ function Header() {
         </button>
         <div className="collapse navbar-collapse" id="navbarResponsive">
           <img
-            src="https://ih1.redbubble.net/image.851109953.7466/st,small,845x845-pad,1000x1000,f8f8f8.u2.jpg"
+            src="https://i.ibb.co/8Nm1rDW/recycle-logo.jpg"
             alt="logooooo"
-            width="50px"
-            height="auto"
+            width="auto"
+            height="100rem"
+            classname="logologo"
+            border-radius= "5px;"
           />
           <ul className="navbar-nav ml-auto">
             <li className="nav-item active">
@@ -49,11 +51,11 @@ function Header() {
                 <Link to="/categories">Recycling Categories</Link>
               </a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link" href="#">
                 <Link to="/login">Log Out</Link>
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
