@@ -18,12 +18,12 @@ function Header() {
         </button>
         <div className="collapse navbar-collapse" id="navbarResponsive">
           <img
-            src="https://i.ibb.co/8Nm1rDW/recycle-logo.jpg"
+            src="https://i.ibb.co/z5g62xh/Screen-Shot-2021-03-11-at-9-17-50-AM.png"
             alt="logooooo"
             width="auto"
             height="100rem"
             classname="logologo"
-            border-radius= "5px;"
+            border-radius="5px;"
           />
           <ul className="navbar-nav ml-auto">
             <li className="nav-item active">
