@@ -42,14 +42,14 @@ body {
 }
 .carousel-caption h1 {
   font-size: 500%;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   text-shadow: 1px 1px 15px #000;
 }
 .carousel-caption h3 {
   font-size: 200%;
   font-weight: 500;
   text-shadow: 1px 1px 10px #000;
-  /* padding-bottom: 1rem; */
+  padding-bottom: 1rem;
 }
 .btn-primary {
   background-color: #6648b1;
@@ -149,8 +149,8 @@ hr.light-100 {
 /*---Media Queries --*/
 @media (max-width: 992px) {
   .social a {
-    font-size: 4em;
-    padding: 2rem;
+    font-size: 2em;
+    padding: 1rem;
   }
 }
 @media (max-width: 768px) {
@@ -271,4 +271,22 @@ Extra (xl) large devices (large desktops, 1200px and up)
 .headline {
   margin-left: auto;
   margin-right: auto;
+}
+
+.search {
+  margin-top: 1em;
+  /* margin-right: auto; */
+}
+.submit {
+  margin-top: 1em;
+  /* margin-right: auto; */
+}
+
+.card-img-top {
+  width: "400px";
+  height: "auto";
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
 }

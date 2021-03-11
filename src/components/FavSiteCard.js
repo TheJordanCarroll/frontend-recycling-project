@@ -17,16 +17,16 @@ function FavSiteCard({ fav, fav_sites, set_fav_sites }) {
         <img
           className="card-img-top"
           src={fav.site.image}
-          style={{ width: "50px", height: "auto" }}
+          // style={{ width: "50px", height: "auto" }}
         />
         <div className="card-body">
           <h4 className="card-title">{fav.site.name}</h4>
           <p className="card-text">
             {fav.site.address}, {fav.site.borough}
           </p>
-          <a href="#" className="btn btn-outline-secondary">
+          {/* <a href="#" className="btn btn-outline-secondary">
             View More Information
-          </a>
+          </a> */}
           <button className="btn btn-outline-secondary" onClick={deleteFav}>
             Remove
           </button>

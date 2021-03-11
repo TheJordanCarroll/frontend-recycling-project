@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 
 import HomePage from "./HomePage";
 import MyRecyclables from "./MyRecyclables";
@@ -10,6 +10,10 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Login from "./Login";
 import SitePage from "./SitePage";
+import SiteType from "./SiteType";
+import TextileSites from "./TextileSites";
+import ElectronicSites from "./ElectronicSites";
+import GeneralSites from "./GeneralSites";
 
 function App({ site }) {
   const [sites, setSites] = useState([]);
@@ -38,6 +42,17 @@ function App({ site }) {
         setFavSites(favSites);
       });
   }, []);
+
+  const generalSites = sites.filter(
+    (site) => site.ig === "https://www.instagram.com/nycsanitation/?hl=en"
+  );
+  const textileSites = sites.filter(
+    (site) => site.ig === "https://www.instagram.com/wearablecollections/?hl=en"
+  );
+
+  const electronicSites = sites.filter(
+    (site) => site.ig === "https://www.instagram.com/nysdec/?hl=en"
+  );
 
   return (
     <div className="app">
@@ -73,14 +88,24 @@ function App({ site }) {
         <Route exact path="/home">
           <HomePage />
         </Route>
-        {/* <Route exact path="/site">
-          <SitePage site={site} />
-        </Route> */}
-        <Route exact path="/sites/:id">
-          <SitePage site={site} />
-        </Route>
+
         <Route exact path="/login">
           <Login />
+        </Route>
+        <Route exact path="/site-type">
+          <SiteType />
+        </Route>
+        <Route exact path="/sites/general">
+          <GeneralSites generalSites={generalSites} />
+        </Route>
+        <Route exact path="/sites/textiles">
+          <TextileSites textileSites={textileSites} />
+        </Route>
+        <Route exact path="/sites/electronics">
+          <ElectronicSites electronicSites={electronicSites} />
+        </Route>
+        <Route exact path="/sites/:id">
+          <SitePage site={site} />
         </Route>
       </Switch>
       <Footer />

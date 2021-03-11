@@ -50,7 +50,6 @@ function SiteCard({ site, favs, set }) {
   }
 
   function handleUpdateMessage(updatedCommentObj) {
-    // console.log(updateCommentObj);
     const updatedComments = comments.map((comment) => {
       if (comment.id === updatedCommentObj.id) {
         return updatedCommentObj;
@@ -67,7 +66,8 @@ function SiteCard({ site, favs, set }) {
         <img
           className="card-img-top"
           src={image}
-          style={{ width: "50px", height: "auto" }}
+          // style={{ width: "400px", height: "auto", margin-left: auto,
+          // margin-right: auto }}
         />
         <div className="card-body">
           <h4 className="card-title">{name}</h4>

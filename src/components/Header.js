@@ -29,11 +29,11 @@ function Header() {
                 <Link to="/home">Home</Link>
               </a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link" href="#">
                 <Link to="/recyclables">My Recyclables</Link>
               </a>
-            </li>
+            </li> */}
             <li className="nav-item">
               <a className="nav-link" href="#">
                 <Link to="/fav_sites">Favorite Recycling Sites</Link>

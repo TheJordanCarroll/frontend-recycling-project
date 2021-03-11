@@ -52,7 +52,7 @@ function NewCommentForm({
           placeholder="Add a comment..."
           onChange={updateFormState}
         />
-        <button type="submit" class="btn btn-outline-secondary">
+        <button type="submit" class="btn btn-outline-secondary submit">
           Submit
         </button>
       </div>
